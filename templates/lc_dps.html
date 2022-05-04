@@ -1,0 +1,35 @@
+{% extends 'lc.html' %}
+
+
+
+
+{% block content2 %}
+    <div align = 'center' >
+    <div class = col-md-6>
+
+        <div class = col-md-4>
+        <form action = "{{url_for('reg_penalty')}}" method = 'POST'>
+            <label class="control-label">Добавить штраф: </label>
+            <br>
+            <label class="control-label">Номер удостоверения: </label>
+            <br>
+            <input name = 'num_lic_penalty' class="form-control">
+            <br>
+            <button type="submit" class="btn btn-success"> Добавить штраф </button>
+        </form>
+        </div>
+    <br>
+    <div class = col-md-4>
+        <form action = "{{url_for('reg_dtp')}}" method = 'POST'>
+            <label class="control-label">Зарегистрировать ДТП </label>
+            <br>
+            <label class="control-label">Номер удостоверения: </label>
+            <br>
+            <input name = 'num_lic_dtp' class="form-control">
+            <br>
+            <button type="submit" class="btn btn-success"> Зарегистрировать ДТП </button>
+        </form>
+        </div>
+    </div>
+    </div>
+{% endblock content2 %}

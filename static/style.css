@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="http://127.0.0.1:5000/static/style.css" type="text/css">
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+.input-field {
+    margin-left: 1em;
+    padding: .5em;
+    margin-bottom: .5em;
+  }

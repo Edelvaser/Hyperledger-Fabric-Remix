@@ -1,0 +1,43 @@
+{% extends 'shablon.html' %}
+
+
+
+
+{% block content %}
+    <div align = 'center' >
+    <div class = col-md-8>
+        <h2><label class="control-label">Регистрация: </label></h2>
+
+        <form action = "{{url_for('reg')}}" method = 'POST'>
+            <label class="control-label">Введите адрес eth </label>
+            <br>
+            <input name = 'addr' class="form-control">
+            <label class="control-label">Введите пароль Geth </label>
+            <br>
+            <input name = 'pasw' type = "password" class="form-control">
+            <label class="control-label">ФИО </label>
+            <br>
+            <input name = 'fio' class="form-control">
+            <br>
+            <label class="control-label">Стаж </label>
+            <br>
+            <input name = 'exp' class="form-control">
+            <br>
+            <label class="control-label">ДТП </label>
+            <br>
+            <input name = 'dtp' class="form-control">
+            <br>
+            <label class="control-label" required>Количество штрафов </label>
+            <br>
+            <input name = 'penalty' class="form-control">
+            <br>
+            <button type="submit" class="btn btn-success"> Зарегистрироваться </button>
+        </form>
+        </div>
+    <br><br>
+        <form action = "{{url_for('logout')}}" method = 'POST'>
+            <button type="submit" class="btn btn-success"> Выход </button>
+        </form>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'shablon.html' %}
+
+{% block content_title %}
+   <h1  align = 'center'>HL</h1>
+{% endblock content_title %}
+<br>
+"col-md-6"
+{% block content %}
+    <div align = 'center' >
+    <div class="form-group row">
+    <div  class = col-md-4>
+        <h2><label class="control-label"></label></h2>
+        <form action = "{{url_for('deploy')}}" method = 'POST'>
+            <div class="col-md-0">   
+                <button name='deploy' value='deploy' type="submit" class="btn btn-success"> Deploy </button>
+            </div>
+        </form>
+        <br><br>
+        {%for butt in func_json%}
+        <form action = "{{url_for('transact')}}" method = 'POST'>
+            
+            {%for inp in butt["inputs"] %}
+            <div class = "row">
+            <div class="col-md-2">
+                    <label class="control-label">{{inp["name"]}}</label>
+            </div>
+            <div class="col-md-6">   
+                <input name = '{{inp["name"]}}' placeholder='{{inp["type"]}}' class="form-control input-field">
+            </div>
+            </div>
+            {% endfor %}
+            <button name='name_func' value='{{butt["name"]}}' type="submit" class="btn btn-success"> {{butt["name"]}} </button>
+            <br>
+            <label class="control-label">{{res}}</label>
+        </form>
+        {% endfor %}
+    <br><br>
+    </div>
+    </div>
+    </div>
+{% endblock content %}

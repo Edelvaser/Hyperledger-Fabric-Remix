@@ -1,0 +1,102 @@
+{% extends 'shablon.html' %}
+
+
+
+
+{% block content %}
+    <div align = 'center' >
+    <div class = col-md-6>
+    <div bgcolor = "green"><h3>{{msg}}</h3></div>
+    <br>
+        <h2><label class="control-label">Сведения о пользователе: </label></h2>
+    <div class = col-md-6 align = left>
+    {%for k in user_info %}
+      <p> <h6>{{k}} : {{user_info[k]}} </h6></p>
+    {% endfor %}
+    </div>
+        <div class = col-md-6>
+        <form action = "{{url_for('add_lic')}}" method = 'POST'>
+            <label class="control-label">Добавить водительское удостоверение: </label>
+            <br>
+            <label class="control-label">Номер удостоверения: </label>
+            <br>
+            <input name = 'num_lic' class="form-control">
+            <br>
+            <label class="control-label" required>Срок действия: </label>
+            <br>
+            <input name = 'period' class="form-control" required>
+            <br>
+            <label class="control-label">Категория: </label>
+            <br>
+            <input name = 'category' class="form-control" required>
+            <br>
+            <button type="submit" class="btn btn-success"> Добавить водительское удостоверение </button>
+        </form>
+        </div>
+    <br>
+    <div class = col-md-6>
+        <form action = "{{url_for('add_tr')}}" method = 'POST'>
+            <label class="control-label">Добавить транспортное средство: </label>
+            <br>
+            <label class="control-label">Введите категорию </label>
+            <br>
+            <input name = 'categ' class="form-control">
+            <br>
+            <label class="control-label" required>Стоимость </label>
+            <br>
+            <input name = 'cost' class="form-control" required>
+            <br>
+            <label class="control-label">Срок эксплуатации </label>
+            <br>
+            <input name = 'expl' class="form-control" required>
+            <br>
+            <button type="submit" class="btn btn-success"> Добавить транспортное средство </button>
+        </form>
+        </div>
+    <div class = col-md-6>
+        <form action = "{{url_for('prolongation')}}" method = 'POST'>
+            <br>
+            <button type="submit" class="btn btn-success"> Продлить срок действия удостоверения </button>
+            <br>
+        </form>
+    </div>
+        <div class = col-md-6>
+        <form action = "{{url_for('pay_of_penalty')}}" method = 'POST'>
+            <label class="control-label">ID штрафа </label>
+            <br>
+            <input name = 'id_penalty' class="form-control" required>
+            <br>
+            <button type="submit" class="btn btn-success"> Оплатить штраф </button>
+            <br>
+        </form>
+    </div>
+    <div class = col-md-6>
+        <form action = "{{url_for('amount_of_insurance')}}" method = 'POST'>
+            <br>
+            <button type="submit" class="btn btn-success">Расчёт стоимости страховки </button>
+            <br>
+        </form>
+    </div>
+    <div class = col-md-6>
+        <form action = "{{url_for('pay_of_insurance')}}" method = 'POST'>
+            <br>
+            <button type="submit" class="btn btn-success">Оформить страховку </button>
+            <br>
+        </form>
+    </div>
+
+    </div>
+    </div>
+{% endblock content %}
+
+{% block exit %}
+    <br>
+    <div align = 'center' >
+    <div class = col-md-8>
+        <form action = "{{url_for('logout')}}" method = 'POST'>
+            <button type="submit" class="btn btn-success"> Выход </button>
+        </form>
+        <br>
+    </div>
+    </div>
+{% endblock exit %}
